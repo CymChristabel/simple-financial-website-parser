@@ -3,7 +3,7 @@ import datetime
 import xlsxwriter
 
 from securities import Securities
-
+from fund import Fund
 
 def time_validation(start_time, end_time):
         try:
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     if search_target == '0':
         res_data = Securities(start_time, end_time).post()
     else:
-        pass
+        res_data = Fund(start_time, end_time).post()
 
     # Writing xlsx
     print('Start writing xlsx file...')
