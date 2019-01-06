@@ -28,10 +28,19 @@ if __name__ == "__main__":
         output_filename = output_filename + '.xlsx'
 
     if search_target == '0':
-        Securities(start_time, end_time).post()
+        res_data = Securities(start_time, end_time).post()
     else:
         pass
 
-    # 
+    # Writing xlsx
+    print('Start writing xlsx file...')
+    
     workbook = xlsxwriter.Workbook(filename=output_filename)
+    worksheet = workbook.add_worksheet()
+
+    for row in range(len(res_data)):
+        for col in range(len(res_data[row])):
+            worksheet.write(row, col, res_data[row][col])
+
+    workbook.close()
 

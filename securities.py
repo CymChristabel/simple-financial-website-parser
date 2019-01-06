@@ -5,7 +5,7 @@ import time
 class Securities():
     def __init__(self, start_time, end_time):
         # Init values
-        self.url = 'http://gs.amac.org.cn/amac-infodisc/api/pof/securities?rand=0.2547440873167026&page=0&size=3'
+        self.url = 'http://gs.amac.org.cn/amac-infodisc/api/pof/securities?rand=0.2547440873167026&page=0&size=99999999'
         self.payload = {
             "foundDateFrom": start_time,
             "foundDateTo": end_time
@@ -34,9 +34,13 @@ class Securities():
         print('Fetching complete, time: %s seconds' % (time.time() - s_time))
 
         # Convert data to list
-        print('Generating data as list...')
+        
 
         securities_list = json.loads(res.text)['content']
+        print('%s number of results found' % len(securities_list))
+
+        print('Generating data as list...')
+
         res = [['产品名称', 
                 '产品编码', 
                 '管理机构', 
@@ -49,6 +53,9 @@ class Securities():
                 '托管机构']]
 
         for item in securities_list:
+            if item['dqr'] == '9999-12-31':
+                item['dqr'] = '无固定存续期限'
+
             res.append([
                 item['cpmc'],
                 item['cpbm'],
@@ -63,5 +70,5 @@ class Securities():
             ])
         
         print('Data generated')
-        
+
         return res
