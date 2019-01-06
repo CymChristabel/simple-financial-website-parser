@@ -15,3 +15,8 @@ After clone the repo, simply call
 Where MODE stands has:
 - Securities(0)
 - Fund(1)
+
+## Example
+
+    python crawler.py 2013-01-01 2018-01-01 example_filename 0
+
