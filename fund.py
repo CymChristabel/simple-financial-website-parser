@@ -11,7 +11,7 @@ class Fund():
             self.data_list.append(data)
     
     def __init__(self, start_time, end_time):
-        self.url = 'http://gs.amac.org.cn/amac-infodisc/api/fund/account?rand=0.23497223040268844&page=0&size=20'
+        self.url = 'http://gs.amac.org.cn/amac-infodisc/api/fund/account?rand=0.23497223040268844&page=0&size=99999999'
         self.detail_url = 'http://gs.amac.org.cn/amac-infodisc/res/fund/account/'
         self.payload = {
             "foundDateFrom": start_time,
