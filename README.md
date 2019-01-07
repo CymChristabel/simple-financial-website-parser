@@ -13,7 +13,7 @@ After clone the repo, simply call
 
     python crawler.py START_DATE END_DATE OUTPUT_FILENAME MODE
 
-Where MODE stands has:
+Where MODE has:
 - Securities(0)
 - Fund(1)
 
