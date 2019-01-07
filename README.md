@@ -3,6 +3,7 @@ A simple financial website fetcher and parser in python
 
 ## Dependencies
 - [xlsxwriter](https://xlsxwriter.readthedocs.io/)
+- [requests](http://docs.python-requests.org/en/master/)
 
 ## Description
 This is a simple financial website fetcher parser that handling data of securities and fund in Asset Management Association of China. After successfully fetching, data would be saved as xlsx file.
